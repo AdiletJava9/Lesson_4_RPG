@@ -2,16 +2,16 @@
 import java.util.Objects;
 import java.util.Random;
 
-public class Lesson_4_1{
+public class Lesson_4_RPG{
 
     public static int bossHealth = 1800;
-    public static int bossDamage = 50;
+    public static int bossDamage = 100;
     public static String bossDefence;
     public static String[] heroesAttackType = {"Physical", "Magical", "Kinetic", "Medic", "Golem", "Lucky", "Witcher", "Thor"}; // Добавлен Thor
-    public static int[] heroesHealth = {200, 200, 200, 500, 500, 200, 200, 200}; // Добавлен Thor
-    public static int[] heroesDamage = {20, 20, 20, 0, 1, 20, 0, 50}; // Урон Thor
+    public static int[] heroesHealth = {200, 200, 200, 500, 500, 200, 200, 200};
+    public static int[] heroesDamage = {20, 20, 20, 0, 1, 20, 0, 50};
     public static int roundNumber;
-    public static boolean bossStunned = false; // Флаг для оглушения босса
+    public static boolean bossStunned = false;
 
     public static void main(String[] args) {
         printStatistics();
@@ -60,7 +60,7 @@ public class Lesson_4_1{
 
     public static void heroesAttack() {
         for (int i = 0; i < heroesDamage.length; i++) {
-            if (heroesHealth[i] > 0 && bossHealth > 0 && !bossStunned) { // Босс не наносит урон, если он оглушен
+            if (heroesHealth[i] > 0 && bossHealth > 0 && !bossStunned) {
                 int damage = heroesDamage[i];
                 if (Objects.equals(heroesAttackType[i], bossDefence)) {
                     Random random = new Random();
@@ -75,10 +75,10 @@ public class Lesson_4_1{
                     bossHealth = bossHealth - damage;
                 }
 
-                // Если это Thor, добавляем шанс оглушить босса
+
                 if (heroesAttackType[i].equals("Thor")) {
                     Random random = new Random();
-                    if (random.nextInt(2) == 0) { // 50% шанс на оглушение
+                    if (random.nextInt(2) == 0) {
                         bossStunned = true;
                         System.out.println("---------------------------------------");
                         System.out.println("THOR HAAS STUNNED THE BOSS FOR 1 ROUND!");
