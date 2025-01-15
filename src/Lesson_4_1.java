@@ -2,7 +2,7 @@
 import java.util.Objects;
 import java.util.Random;
 
-public class Lesson_4_1_RPG {
+public class Lesson_4_1{
 
     public static int bossHealth = 1800;
     public static int bossDamage = 50;
